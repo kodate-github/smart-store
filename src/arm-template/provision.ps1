@@ -10,8 +10,8 @@ az sql server firewall-rule create `
     --resource-group ${RESOURCE_GROUP} `
     --server ${SQL_SERVER_NAME} `
     --name temp `
-    --start-ip-address ${IP_ADDRESS} `
-    --end-ip-address ${IP_ADDRESS}
+    --start-ip-address "0.0.0.0" `
+    --end-ip-address "255.255.255.255"
 
 # Create table in SQL Database
 $SQL_SERVER_ENDPOINT=az sql server list `

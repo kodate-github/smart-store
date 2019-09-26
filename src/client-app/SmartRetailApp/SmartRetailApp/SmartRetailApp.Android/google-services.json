@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "61833246927",
+    "firebase_url": "https://smartstore-1c84d.firebaseio.com",
+    "project_id": "smartstore-1c84d",
+    "storage_bucket": "smartstore-1c84d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:61833246927:android:b40c3d35d26818b0271fba",
+        "android_client_info": {
+          "package_name": "jp.intelligentretail.smartstore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "61833246927-n4njjr6uoj5488gafid2nu0es7dg03p1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-iOejkgPtQN0JFa3sqDUTDLjbtXut3n4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "61833246927-n4njjr6uoj5488gafid2nu0es7dg03p1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

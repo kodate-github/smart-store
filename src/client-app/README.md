@@ -23,9 +23,9 @@
 ### Constant.cs の書き換え
 共通プロジェクトの `Models/Constant.cs` の定数を書き換えます。
 
-- `CartsApiName`: `https://<PREFIX>-box-api.azurewebsites.net/api/v1/carts`
-- `ApiKey`: _<PREFIX>-box-api_ に設定したAPIキー
-- `AppCenterKeyAndroid`: App Center -> Overview の手順 2. Start the SDK の `AppCenter.Start("<この部分>", ...)`
+- `CartsApiName`: `https://tk-box-api.azurewebsites.net/api/v1/carts`
+- `ApiKey`: joJFD3C7XsYlUQ06IhGAryLA4okuXzUjxLkPZjWDfyxEzSLkQaZZnQ==
+- `AppCenterKeyAndroid`:c658cece-9420-43cd-aa7f-abc2f0b157b1
 - `AppCenterKeyiOS`: 
 
 ```c#

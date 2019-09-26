@@ -94,11 +94,11 @@ Azure CLI が準備できましたら、下記を参考にリソースをデプ�
 ### PowerShell によるデプロイ
 
 ```ps1
-$RESOURCE_GROUP="<resource group name>"
+$RESOURCE_GROUP="smartstoretk20190925"
 $LOCATION="japaneast"
 
-$PREFIX="<prefix string within 2 characters>"
-$STOCK_SERVICE_SQL_SERVER_ADMIN_PASSWORD="<sql server admin password>"
+$PREFIX="tk"
+$STOCK_SERVICE_SQL_SERVER_ADMIN_PASSWORD="Sm@rtStore0925kodate"
 
 $TEMPLATE_URL="https://raw.githubusercontent.com/intelligent-retail/smart-store/master/src/arm-template"
 
@@ -114,7 +114,7 @@ az group deployment create `
   --parameters ${TEMPLATE_URL}/parameters.json `
   --parameters `
     prefix=${PREFIX} `
-    stockServiceSqlServerAdminPassword=${STOCK_SERVICE_SQL_SERVER_ADMIN_PASSWORD}
+    stockServiceSqlServerAdminPassword=${STOCK_SERVICE_SQL_SERVER_ADMIN_PASSWORD} boxIotHubSku=S1
 ```
 
 ### bash によるデプロイ
@@ -218,6 +218,7 @@ Azure Functions に API key を設定します。
 Azure Functions の API key は、関数全体、または関数個別に設定することができます。ここでは、作業簡略化のため、同じ値のキーを関数全体に設定します。
 
 1. Azureポータルで、デプロイした Auzre Functions のひとつを開き、「Function App の設定」を開きます。
+関数APPの設定
 2. 「Function App の設定」画面で、「ホスト キー（すべての関数）」の「新しいホスト キーの追加」ボタンをクリックします。
 3. 「名前」の欄に `app` と入力し、「保存」ボタンをクリックして保存します。（値は空欄のままとし、自動生成させる）
 4. 保存されたら、「アクション」欄の「コピー」をクリックし、生成されたキーをコピーします。
@@ -265,6 +266,9 @@ Azure Functions の API key は、関数全体、または関数個別に設定�
 - `NOTIFICATION_URI` 下記の URL の `{owner_name}` と `{app_name}` を置き換えて、`NOTIFICATION_URI` に設定する
   - `https://api.appcenter.ms/v0.1/apps/{owner_name}/{app_name}/push/notifications`
 
+
+https://appcenter.ms/users/tadayukinanamiriho-gmail.com/apps/PushSampleAndroid
+
 詳細は下記をご参考下さい。
 
 - [Push | App Center API](https://openapi.appcenter.ms/#/push/Push_Send)
@@ -275,8 +279,8 @@ Azure Functions の API key は、関数全体、または関数個別に設定�
 
 ```ps1
 # item-service と stock-service の api key を pos-api に設定する
-$ITEM_MASTER_API_KEY="<item service api key>"
-$STOCK_COMMAND_API_KEY="<stock service command api key>"
+$ITEM_MASTER_API_KEY="joJFD3C7XsYlUQ06IhGAryLA4okuXzUjxLkPZjWDfyxEzSLkQaZZnQ=="
+$STOCK_COMMAND_API_KEY="joJFD3C7XsYlUQ06IhGAryLA4okuXzUjxLkPZjWDfyxEzSLkQaZZnQ=="
 az functionapp config appsettings set `
   --resource-group ${RESOURCE_GROUP} `
   --name ${PREFIX}-pos-api `
@@ -285,9 +289,9 @@ az functionapp config appsettings set `
     StockApiKey=${STOCK_COMMAND_API_KEY}
 
 # pos-service の api key と通知の設定を box-api に設定する
-$POS_API_KEY="<pos api key>"
-$NOTIFICATION_API_KEY="<app center push api key>"
-$NOTIFICATION_URI="https://api.appcenter.ms/v0.1/apps/{owner_name}/{app_name}/push/notifications"
+$POS_API_KEY="joJFD3C7XsYlUQ06IhGAryLA4okuXzUjxLkPZjWDfyxEzSLkQaZZnQ=="
+$NOTIFICATION_API_KEY="afa2145bad4f2fe38dec9e622eef4d60322667fb"
+$NOTIFICATION_URI="https://api.appcenter.ms/v0.1/apps/tadayukinanamiriho-gmail.com/PushSampleAndroid/push/notifications"
 az functionapp config appsettings set `
   --resource-group ${RESOURCE_GROUP} `
   --name ${PREFIX}-box-api `
@@ -313,7 +317,7 @@ az functionapp config appsettings set \
 # pos-service の api key と通知の設定を box-api に設定する
 POS_API_KEY=<pos api key>
 NOTIFICATION_API_KEY=<app center push api key>
-NOTIFICATION_URI=https://api.appcenter.ms/v0.1/apps/{owner_name}/{app_name}/push/notifications
+NOTIFICATION_URI=https://api.appcenter.ms/v0.1/apps/tadayukinanamiriho-gmail.com/PushSampleAndroid/push/notifications
 az functionapp config appsettings set \
   --resource-group ${RESOURCE_GROUP} \
   --name ${PREFIX}-box-api \
